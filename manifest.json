@@ -1,0 +1,7 @@
+{
+  "name": "bookmarks",
+  "short_name": "bookmarks",
+  "description": "Webapp to store your bookmarks",
+  "start_url": "/",
+  "display": "standalone"
+}

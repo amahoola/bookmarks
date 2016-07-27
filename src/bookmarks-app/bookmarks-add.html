@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="bookmarks-add">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+      }
+    </style>
+    
+    <paper-fab icon="add" raised onclick="animated.open()"></paper-fab>
+<paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+  <h2>Dialog Title</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</paper-dialog>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bookmarks-add',
+      
+    });
+  </script>
+</dom-module>

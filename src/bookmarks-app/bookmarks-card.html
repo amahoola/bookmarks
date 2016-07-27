@@ -1,0 +1,70 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="bookmarks-card">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        margin: 25px;
+        font-family: 'Roboto', sans-serif;
+      }
+      .card-content {
+        height: 75px;
+        width: 200px;
+        overflow-y: hidden;
+      }
+      .bookmarks-header { @apply(--paper-font-headline); }
+      .bookmarks-title {
+        display: inline-block;
+        max-width: 250px;
+        word-break: break-word;
+      }
+      .bookmarks-url { 
+        color: var(--paper-grey-600); 
+        word-break: break-all;
+      }
+      .bookmarks-favicon {
+        float: right;
+        vertical-align: middle;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    </style>
+    
+    <paper-card>
+      <div class="card-content">
+        <div class="bookmarks-header"><span class="bookmarks-title">{{title}}</span>
+          <img class="bookmarks-favicon" src="http://www.google.com/s2/favicons?domain={{url}}"/>
+        </div>
+        <a href="{{url}}" target="_blank"><p class="bookmarks-url">{{url}}</p></a>
+      </div>
+      <div class="card-actions">
+        <a href="{{url}}"><paper-button>Go!</paper-button></a>
+        <paper-button>New Tab</paper-button></a>
+      </div>
+    </paper-card>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bookmarks-card',
+
+      properties: {
+        title: {
+          type: String,
+          value: 'Google',
+        },
+        url: {
+          type: String,
+          value: 'http://google.com',
+        },
+      },
+      
+    });
+  </script>
+</dom-module>

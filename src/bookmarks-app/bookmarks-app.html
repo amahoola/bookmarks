@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="bookmarks-add.html">
+<link rel="import" href="bookmarks-list.html">
+
+<dom-module id="bookmarks-app">
+  <template>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      :host {
+        display: block;
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+
+    <h2>Hello [[prop1]]</h2>
+    <bookmarks-add></bookmarks-add>
+    <bookmarks-list></bookmarks-list>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bookmarks-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'bookmarks-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

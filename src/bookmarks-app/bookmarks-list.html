@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bookmarks-card.html">
+
+<dom-module id="bookmarks-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <iron-ajax
+    auto
+    url="http://localhost:8080/bookmarks.json"
+    handle-as="json"
+    last-response="{{response}}"></iron-ajax>
+
+    <template is="dom-repeat" items="{{response}}">
+      <bookmarks-card title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bookmarks-list',      
+
+    });
+  </script>
+</dom-module>
