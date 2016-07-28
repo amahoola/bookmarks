@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 
 <dom-module id="bookmarks-card">
   <template>
@@ -18,7 +19,7 @@
       .bookmarks-header { @apply(--paper-font-headline); }
       .bookmarks-title {
         display: inline-block;
-        max-width: 250px;
+        max-width: 150px;
         word-break: break-word;
       }
       .bookmarks-url { 
@@ -28,6 +29,7 @@
       .bookmarks-favicon {
         float: right;
         vertical-align: middle;
+        display: inline-block;
       }
       a {
         color: #000;
@@ -37,14 +39,21 @@
     
     <paper-card>
       <div class="card-content">
-        <div class="bookmarks-header"><span class="bookmarks-title">{{title}}</span>
-          <img class="bookmarks-favicon" src="http://www.google.com/s2/favicons?domain={{url}}"/>
+        <div class="bookmarks-header"><span class="bookmark-title">{{title}}</span>
+          <div class="bookmarks-favicon">
+            <img src="http://www.google.com/s2/favicons?domain={{url}}"/>
+          </div>
         </div>
         <a href="{{url}}" target="_blank"><p class="bookmarks-url">{{url}}</p></a>
       </div>
       <div class="card-actions">
-        <a href="{{url}}"><paper-button>Go!</paper-button></a>
-        <paper-button>New Tab</paper-button></a>
+        <template is="dom-if" if="{{editMode}}">
+          <paper-icon-button icon="delete">Delete</paper-icon-button>
+        </template>
+        <template is="dom-if" if="{{!editMode}}">
+          <a href="{{url}}"><paper-button>Go!</paper-button></a>
+          <a href="{{url}}" target="_blank"><paper-button>New Tab</paper-button></a>
+        </template>
       </div>
     </paper-card>
   </template>
@@ -62,6 +71,10 @@
         url: {
           type: String,
           value: 'http://google.com',
+        },
+        editMode: {
+          type: Boolean,
+          value: false,
         },
       },
       
