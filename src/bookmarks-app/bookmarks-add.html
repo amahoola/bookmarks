@@ -27,26 +27,26 @@
     <paper-dialog id="animated" entry-animation="fade-in-animation" exit-animation="fade-out-animation" with-backdrop>
       <h2>Add Bookmark</h2>
       <p>To add your bookmark just fill in a title and the url</p>
-      <form is="iron-form" method="get" action="/" id="basic">
+      <form is="iron-form" method="get" action="/" id="addBookmark">
         <paper-input label="Title" name="title" char-counter maxlength="25" required error-message="Fill in a title"></paper-input>
         <paper-textarea label="URL" name="url" required error-message="Fill in an URL"></paper-textarea>
         <div class="buttons">
-        </div>
           <paper-button onclick="_submit(event)">Submit</paper-button>
           <paper-button dialog-dismiss onclick="_reset(event)">Cancel</paper-button>
-
+        </div>
         <div class="output"></div>
       </form>
       <script>
         function _submit(event) {
-          Polymer.dom(event).localTarget.parentElement.submit();
+          var form = document.querySelector('#addBookmark');
+          form.submit();
         }
         function _reset(event) {
-          var form = Polymer.dom(event).localTarget.parentElement
+          var form = document.querySelector('#addBookmark');
           form.reset();
           form.querySelector('.output').innerHTML = '';
         }
-        basic.addEventListener('iron-form-submit', function(event) {
+        addBookmark.addEventListener('iron-form-submit', function(event) {
           this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
         });
       </script>
