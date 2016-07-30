@@ -1,6 +1,15 @@
-# \<bookmarks\>
+# Polymer bookmarks
 
 Webapp to store your bookmarks
+
+## TODO
+
+* [] Add bookmarks in localstorgage
+* [] Google Sign-in
+* [] Add bookmarks in database
+* [] Edit-mode
+* [] Movable bookmarks
+* [] Some form of styling/theming
 
 ## Install the Polymer-CLI
 
