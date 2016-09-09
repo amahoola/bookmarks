@@ -6,34 +6,33 @@
 <link rel="import" href="bookmarks-add.html">
 
 <dom-module id="bookmarks-app">
-  <template>
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Roboto);
-      :host {
-        display: block;
-        font-family: 'Roboto', sans-serif;
-      }
-    </style>
-    <paper-header-panel class="flex">
-      <paper-toolbar>
-        <paper-icon-button icon="menu"></paper-icon-button>
-        <span class="title">Bookmarks</span>
-        <paper-icon-button icon="mode-edit"></paper-icon-button>
-        <paper-icon-button onclick="animated.open()" icon="add">+</paper-icon-button>
-      </paper-toolbar>
-    </paper-header-panel>
-    <bookmarks-add></bookmarks-add>
-    <bookmarks-list></bookmarks-list>
-  </template>
+    <template>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-  <script>
-    Polymer({
+            :host {
+                display: block;
+                font-family: 'Roboto', sans-serif;
+            }
+        </style>
+        <paper-header-panel class="flex">
+            <paper-toolbar>
+                <paper-icon-button icon="menu"></paper-icon-button>
+                <span class="title">Bookmarks</span>
+                <paper-icon-button icon="mode-edit"></paper-icon-button>
+                <paper-icon-button onclick="animated.open()" icon="add">+</paper-icon-button>
+            </paper-toolbar>
+        </paper-header-panel>
+        <bookmarks-add></bookmarks-add>
+        <bookmarks-list></bookmarks-list>
+    </template>
 
-      is: 'bookmarks-app',
+    <script>
+        Polymer({
 
-      properties: {
-        
-      },
-    });
-  </script>
+            is: 'bookmarks-app',
+
+            properties: {},
+        });
+    </script>
 </dom-module>

@@ -3,29 +3,29 @@
 <link rel="import" href="bookmarks-card.html">
 
 <dom-module id="bookmarks-list">
-  <template>
-    <style>
-      :host {
-        display: inline;
-      }
-    </style>
-    
-    <iron-ajax
-    auto
-    url="http://localhost:8080/bookmarks.json"
-    handle-as="json"
-    last-response="{{response}}"></iron-ajax>
+    <template>
+        <style>
+            :host {
+                display: inline;
+            }
+        </style>
 
-    <template is="dom-repeat" items="{{response}}">
-      <bookmarks-card title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
+        <iron-ajax
+                auto
+                url="http://bookmarks.dev.sergi.vdmi/bookmarks.json"
+                handle-as="json"
+                last-response="{{response}}"></iron-ajax>
+
+        <template is="dom-repeat" items="{{response}}">
+            <bookmarks-card title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
+        </template>
     </template>
-  </template>
 
-  <script>
-    Polymer({
+    <script>
+        Polymer({
 
-      is: 'bookmarks-list',      
+            is: 'bookmarks-list',
 
-    });
-  </script>
+        });
+    </script>
 </dom-module>
