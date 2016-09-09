@@ -3,3 +3,7 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+
+### Other ###
+.idea
+node_modules/
