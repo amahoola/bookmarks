@@ -51,6 +51,7 @@
                     $bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
                     $bookmarks.push(event.detail);
                     localStorage.setItem('bookmarks', JSON.stringify($bookmarks));
+                    animated.close();
                 });
             </script>
         </paper-dialog>
