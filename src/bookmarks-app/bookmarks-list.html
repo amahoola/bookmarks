@@ -10,13 +10,13 @@
             }
         </style>
 
-        <iron-ajax
+        <!--iron-ajax
                 auto
                 url="http://bookmarks.dev.sergi.vdmi/bookmarks.json"
                 handle-as="json"
-                last-response="{{response}}"></iron-ajax>
+                last-response="{{response}}"></iron-ajax-->
 
-        <template is="dom-repeat" items="{{response}}">
+        <template is="dom-repeat" items="{{bookmarks}}">
             <bookmarks-card title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
         </template>
     </template>
@@ -25,7 +25,19 @@
         Polymer({
 
             is: 'bookmarks-list',
-
+            properties: {
+                bookmarks: {
+                    type: Object,
+                },
+            },
+            ready: function() {
+                $bookmarks = localStorage.getItem('bookmarks');
+                if (!$bookmarks) {
+                    $bookmarks = '[]';
+                    localStorage.setItem('bookmarks', $bookmarks);
+                }
+                this.bookmarks = JSON.parse($bookmarks);
+            }
         });
     </script>
 </dom-module>
