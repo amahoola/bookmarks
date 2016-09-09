@@ -37,7 +37,6 @@
                     <paper-button onclick="_submit(event)">Submit</paper-button>
                     <paper-button dialog-dismiss onclick="_reset(event)">Cancel</paper-button>
                 </div>
-                <div class="output"></div>
             </form>
             <script>
                 function _submit(event) {
@@ -47,10 +46,11 @@
                 function _reset(event) {
                     var form = document.querySelector('#addBookmark');
                     form.reset();
-                    form.querySelector('.output').innerHTML = '';
                 }
                 addBookmark.addEventListener('iron-form-submit', function (event) {
-                    this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+                    $bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                    $bookmarks.push(event.detail);
+                    localStorage.setItem('bookmarks', JSON.stringify($bookmarks));
                 });
             </script>
         </paper-dialog>
