@@ -1,13 +1,32 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/app-layout/app-layout.html">
 <link rel="import" href="bookmarks-card.html">
 
 <dom-module id="bookmarks-list">
     <template>
-        <style>
-            :host {
-                display: inline;
-            }
+        <style include="app-grid-style">
+        :host {
+         display: block;
+         --app-grid-columns: 4;
+         --app-grid-gutter: 20px;
+         --app-grid-expandible-item-columns: 4;
+       }
+       .centered-container {
+         margin-top: 40px;
+         max-width: 1000px;
+         margin: 40px auto;
+       }
+       @media(max-width: 799px) {
+         .centered-container {
+           margin: 10px 5px;
+         }
+         :host {
+           --app-grid-columns: 2;
+           --app-grid-gutter: 5px;
+         }
+       }
+
         </style>
 
         <!--iron-ajax
@@ -15,10 +34,13 @@
                 url="http://bookmarks.dev.sergi.vdmi/bookmarks.json"
                 handle-as="json"
                 last-response="{{response}}"></iron-ajax-->
-
-        <template is="dom-repeat" items="{{bookmarks}}">
-            <bookmarks-card title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
-        </template>
+      <div class="centered-container">
+        <ul class="app-grid">
+          <template has-aspect-ratio is="dom-repeat" items="{{bookmarks}}">
+              <bookmarks-card class="item" title="{{item.title}}" url="{{item.url}}"></bookmarks-card>
+          </template>
+        </ul>
+      </div>
     </template>
 
     <script>
